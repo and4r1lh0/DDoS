@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>c2936517-19af-496c-b1d3-e5a6cda588c2</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>detect\detect_incoming_icmp.py</StartupFile>
+    <StartupFile>init.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -26,7 +26,7 @@
     <Compile Include="detect\detect_incoming_icmp.py" />
     <Compile Include="detect\detect+statistics.py" />
     <Compile Include="init.py" />
-    <Compile Include="icmp_flood_agrs.py" />
+    <Compile Include="icmp_flood_args.py" />
     <Compile Include="send_templates\icmp\incorrect_icmp_default_packet_size.py" />
     <Compile Include="icmp_flood.py" />
     <Compile Include="win_ping.py" />
