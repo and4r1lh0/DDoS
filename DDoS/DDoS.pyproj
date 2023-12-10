@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>c2936517-19af-496c-b1d3-e5a6cda588c2</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>icmp_req.py</StartupFile>
+    <StartupFile>icmplib_asyncping.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -30,7 +30,11 @@
     <Compile Include="icmp_req.py" />
     <Compile Include="icmp_test.py" />
     <Compile Include="icmp_tool.py" />
+    <Compile Include="ping3.py" />
     <Compile Include="test.py" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="icmplib_asyncping.py" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in
