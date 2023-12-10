@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>c2936517-19af-496c-b1d3-e5a6cda588c2</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>13.py</StartupFile>
+    <StartupFile>icmp_flood.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -21,23 +21,28 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="ddos_origin.py" />
-    <Compile Include="13.py" />
-    <Compile Include="create.py" />
-    <Compile Include="ddos_parsed.py" />
+    <Compile Include="detect1.py" />
+    <Compile Include="detect2.py" />
+    <Compile Include="detect3.py" />
+    <Compile Include="detect4.py" />
+    <Compile Include="incorrect_icmp_default_packet_size.py" />
+    <Compile Include="icmp_flood.py" />
+    <Compile Include="win_ping.py" />
     <Compile Include="detect.py" />
     <Compile Include="icmplib\icmplib_ping.py" />
-    <Compile Include="icmp_req.py" />
-    <Compile Include="icmp_test.py" />
-    <Compile Include="icmp_tool.py" />
-    <Compile Include="ping3.py" />
-    <Compile Include="test.py" />
+    <Compile Include="icmp.py" />
+    <Compile Include="scapy\scapy+colorama_icmp_sender.py" />
+    <Compile Include="scapy\scapy_icmp_sender.py" />
+    <Compile Include="ping3\ping3.py" />
+    <Compile Include="icmp_with_logging.py" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="icmplib\icmplib_asyncping.py" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="icmplib\" />
+    <Folder Include="scapy\" />
+    <Folder Include="ping3\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in

@@ -5,9 +5,9 @@ def send_ping(ip_dest,ip_src,sent_buff_size):
     subprocess.run(f'ping -l {sent_buff_size} -t {ip_dest} -S {ip_src}', stdout=subprocess.DEVNULL)
 
 def main():
-    ip_destination = '192.168.1.70'
+    ip_destination = '192.168.1.1'
     ip_source = '192.168.1.35'
-    sent_buff_size = 65500
+    sent_buff_size = 650
     num_threads = 187
 
     threads = []

