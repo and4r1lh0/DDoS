@@ -48,7 +48,7 @@ if __name__ == '__main__':
     #target_ip = sys.argv[1]
     #duration = int(sys.argv[2])
     #packet_size = int(sys.argv[3])
-    target_ip='192.168.1.70'
+    target_ip='192.168.1.1'
     duration=120
     packet_size=1000
 
