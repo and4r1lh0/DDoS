@@ -41,6 +41,6 @@ def calculate_checksum(data):
     return checksum
 
 if __name__ == '__main__':
-    target_ip = '192.168.1.1'
+    target_ip = '192.168.233.128'
     duration = 120
     icmp_flood(target_ip, duration)

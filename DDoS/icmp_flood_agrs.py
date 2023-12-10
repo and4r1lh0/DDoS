@@ -3,6 +3,8 @@ import socket
 import struct
 import sys
 import time
+import argparse
+
 
 def icmp_flood(target_ip, duration, packet_size):
     sock = socket.socket(socket.AF_INET, socket.SOCK_RAW, socket.IPPROTO_ICMP)
@@ -49,8 +51,16 @@ if __name__ == '__main__':
     #target_ip = sys.argv[1]
     #duration = int(sys.argv[2])
     #packet_size = int(sys.argv[3])
-    target_ip='192.168.1.1'
-    duration=1200
-    packet_size=65000 #data+header
+    
+    parser = argparse.ArgumentParser(description="ICMP Request Generator")
+    parser.add_argument("-target", type=str, help="Target IP address")
+    parser.add_argument("-duration", type=int, default=1, help="Timeout in seconds (default: 1)")
+    parser.add_argument("-size", type=int, default=64, help="Timeout in seconds (default: 1)")
+
+    args = parser.parse_args()
+
+    target_ip = args.target
+    duration = args.duration
+    packet_size = args.size
 
     icmp_flood(target_ip, duration, packet_size)

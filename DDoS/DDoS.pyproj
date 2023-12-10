@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>c2936517-19af-496c-b1d3-e5a6cda588c2</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>icmp_flood.py</StartupFile>
+    <StartupFile>detect\detect_incoming_icmp.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -21,28 +21,32 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="detect1.py" />
-    <Compile Include="detect2.py" />
-    <Compile Include="detect3.py" />
-    <Compile Include="detect4.py" />
-    <Compile Include="incorrect_icmp_default_packet_size.py" />
+    <Compile Include="detect\icmp_capture.py" />
+    <Compile Include="detect\detect_all_icmp.py" />
+    <Compile Include="detect\detect_incoming_icmp.py" />
+    <Compile Include="detect\detect+statistics.py" />
+    <Compile Include="init.py" />
+    <Compile Include="icmp_flood_agrs.py" />
+    <Compile Include="send_templates\icmp\incorrect_icmp_default_packet_size.py" />
     <Compile Include="icmp_flood.py" />
     <Compile Include="win_ping.py" />
-    <Compile Include="detect.py" />
-    <Compile Include="icmplib\icmplib_ping.py" />
-    <Compile Include="icmp.py" />
-    <Compile Include="scapy\scapy+colorama_icmp_sender.py" />
-    <Compile Include="scapy\scapy_icmp_sender.py" />
-    <Compile Include="ping3\ping3.py" />
-    <Compile Include="icmp_with_logging.py" />
+    <Compile Include="send_templates\icmplib\icmplib_ping.py" />
+    <Compile Include="send_templates\icmp\icmp.py" />
+    <Compile Include="send_templates\scapy\scapy+colorama_icmp_sender.py" />
+    <Compile Include="send_templates\scapy\scapy_icmp_sender.py" />
+    <Compile Include="send_templates\ping3\ping3.py" />
+    <Compile Include="send_templates\icmp\icmp_with_logging.py" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="icmplib\icmplib_asyncping.py" />
+    <Content Include="send_templates\icmplib\icmplib_asyncping.py" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="icmplib\" />
-    <Folder Include="scapy\" />
-    <Folder Include="ping3\" />
+    <Folder Include="send_templates\icmp\" />
+    <Folder Include="send_templates\icmplib\" />
+    <Folder Include="detect\" />
+    <Folder Include="send_templates\" />
+    <Folder Include="send_templates\scapy\" />
+    <Folder Include="send_templates\ping3\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in

@@ -30,7 +30,7 @@ def print_statistics():
             packets_5_min = count_packets_in_interval(counters['5_min'], 300)
             packets_15_min = count_packets_in_interval(counters['15_min'], 900)
             
-            print(f"{ip}: \t{total}\t\t{packets_1_min}\t\t\t{packets_5_min}\t\t\t{packets_15_min}")
+            print(f"{ip}: \t{total}\t\t{packets_1_min}\t\t{packets_5_min}\t\t{packets_15_min}")
         time.sleep(1)
 
 def count_packets_in_interval(interval_counter, interval_length):

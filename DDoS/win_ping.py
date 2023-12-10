@@ -7,7 +7,7 @@ def send_ping(ip_dest,ip_src,sent_buff_size):
 def main():
     ip_destination = '192.168.1.1'
     ip_source = '192.168.1.35'
-    sent_buff_size = 650
+    sent_buff_size = 64
     num_threads = 187
 
     threads = []

