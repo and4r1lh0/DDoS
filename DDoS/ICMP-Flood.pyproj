@@ -5,7 +5,7 @@
     <ProjectGuid>c2936517-19af-496c-b1d3-e5a6cda588c2</ProjectGuid>
     <ProjectHome>
     </ProjectHome>
-    <StartupFile>gui_v2.py</StartupFile>
+    <StartupFile>merge.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -22,6 +22,9 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="client.py" />
+    <Compile Include="detect\2.py" />
+    <Compile Include="detect\3.py" />
     <Compile Include="detect\icmp_capture.py" />
     <Compile Include="detect\detect_all_icmp.py" />
     <Compile Include="detect\detect_incoming_icmp.py" />
@@ -31,8 +34,10 @@
     <Compile Include="gui_v3.py" />
     <Compile Include="init.py" />
     <Compile Include="icmp_flood_args.py" />
+    <Compile Include="merge.py" />
     <Compile Include="send_templates\icmp\incorrect_icmp_default_packet_size.py" />
     <Compile Include="icmp_flood.py" />
+    <Compile Include="server.py" />
     <Compile Include="win_ping.py" />
     <Compile Include="send_templates\icmplib\icmplib_ping.py" />
     <Compile Include="send_templates\icmp\icmp.py" />

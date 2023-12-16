@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>f029699e-0bcf-4512-a50e-d78c4e92c4bf</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>2.py</StartupFile>
+    <StartupFile>client.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -23,6 +23,8 @@
   <ItemGroup>
     <Compile Include="1.py" />
     <Compile Include="2.py" />
+    <Compile Include="client.py" />
+    <Compile Include="server.py" />
     <Compile Include="Syn_Flood.py" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
