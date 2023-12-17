@@ -4,34 +4,24 @@ from scapy.all import sniff, IP, ICMP
 from collections import defaultdict
 import threading
 import time
+#from socket import gethostbyname, gethostname
 import socket
-import json
-
-def send_data(data):
-    host = "192.168.1.35"
-    port = 8000
-
-    with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as sock:
-        sock.connect((host, port))
-        json_data = json.dumps(data)
-        sock.sendall(json_data.encode("utf-8"))
-        sock.recv(1024)
 
 def count_icmp_packets(packet):
     global local_ip
     if IP in packet and ICMP in packet:
         ip_source = packet[IP].src
-        if ip_source != local_ip:  # Исключение IP-адреса хоста из подсчёта
+        if ip_source != local_ip:  # Исключаем IP-адрес хоста из подсчета
             icmp_counter[ip_source] += 1
 
 def print_statistics():
     while True:
         os.system('cls' if os.name == 'nt' else 'clear')
-        print('Local IP: ', local_ip)
+        print('Local IP: ',local_ip)
         print("IP адрес\tПакетов")
         for ip, count in icmp_counter.items():
             print(f"{ip}: \t{count}")
-
+        
         # Сравнение с предыдущими значениями за разные временные интервалы
         current_time = time.time()
         recent_10s = sum(count for timestamp, count in time_counter.items() if current_time - timestamp <= 10)
@@ -42,12 +32,6 @@ def print_statistics():
         if recent_10s > 50 or recent_1m > 100 or recent_5m > 200:
             attacker_ip = max(icmp_counter, key=icmp_counter.get)
             print(f"ICMP flood detected! Attacker ip address {attacker_ip}")
-            data = {
-                "client_id": os.getpid(),
-                "local_ip": local_ip,
-                "attacker_ip": attacker_ip,
-            }
-            send_data(data)
 
         time.sleep(1)
 
@@ -55,8 +39,8 @@ icmp_counter = defaultdict(int)
 time_counter = defaultdict(int)
 sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 sock.connect(("8.8.8.8", 80))
-local_ip = sock.getsockname()
-local_ip = local_ip[0]
+local_ip=sock.getsockname()
+local_ip=(local_ip[0])
 #local_ip = gethostbyname(gethostname())
 
 statistics_thread = threading.Thread(target=print_statistics)
