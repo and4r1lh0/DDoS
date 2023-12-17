@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>78d82f76-0c7c-46d7-82c5-b1999c9eec08</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>detect\agent\server1.py</StartupFile>
+    <StartupFile>detect\agent\server_v2.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -21,12 +21,9 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="detect\agent\client_final.py" />
-    <Compile Include="detect\agent\server1.py" />
-    <Compile Include="detect\agent\test_client.py" />
-    <Compile Include="detect\agent\server_v1.py" />
     <Compile Include="detect\agent\server_v2.py" />
-    <Compile Include="detect\agent\test_server.py" />
+    <Compile Include="detect\agent\server_v1.py" />
+    <Compile Include="detect\agent\test_server_single_resp.py" />
     <Compile Include="detect\detect_icmp_with_condition.py" />
     <Compile Include="detect\agent\client_detect_icmp_with_condition.py" />
     <Compile Include="detect\detect+statistics.py" />

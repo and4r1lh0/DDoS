@@ -1,21 +1,27 @@
 ﻿import socket
 import threading
+import time
 
+interval = 1  # Define the polling interval
+    
 def handle_client(client_socket):
-    while True:
-        data = client_socket.recv(1024)
-        print(data.decode('utf-8'))
+    client_id = client_socket.recv(1024).decode()
+    client_socket.send(client_id.encode())
+    print(client_id)
+   
 
-def start_server():
-    server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    server.bind(('192.168.1.35', 8000))
-    server.listen(5)
+def main():
+    server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    server_socket.bind(("192.168.1.35", 8000))
+    server_socket.listen(5)
     print('[INFO] Server listening on port 8000')
 
     while True:
-        client_socket, addr = server.accept()
-        print(f'[INFO] Accepted connection from {addr[0]}:{addr[1]}')
-        client_handler = threading.Thread(target=handle_client, args=(client_socket,))
-        client_handler.start()
+        client_socket, _ = server_socket.accept()
+        thread = threading.Thread(target=handle_client, args=(client_socket,))
+        thread.start()
 
-start_server()
+        time.sleep(interval)
+
+if __name__ == "__main__":
+    main()

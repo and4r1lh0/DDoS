@@ -1,4 +1,5 @@
-﻿import os
+﻿# -*- coding: cp1251 -*-
+import os
 from scapy.all import sniff, IP, ICMP
 from collections import defaultdict
 import threading
