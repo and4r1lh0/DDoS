@@ -1,5 +1,4 @@
-# -*- coding: cp1251 -*-
-import os
+﻿import os
 from scapy.all import sniff, ICMP, show_interfaces
 show_interfaces()
 

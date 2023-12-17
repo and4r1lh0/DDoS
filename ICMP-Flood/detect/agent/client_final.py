@@ -1,5 +1,4 @@
-# -*- coding: cp1251 -*-
-import os
+Ôªøimport os
 from scapy.all import sniff, IP, ICMP
 from collections import defaultdict
 import threading
@@ -32,7 +31,7 @@ def print_statistics(local_ip, icmp_counter, time_counter):
     while True:
         os.system('cls' if os.name == 'nt' else 'clear')
         print('Local IP: ', local_ip)
-        print("IP ‡‰ÂÒ\tœ‡ÍÂÚÓ‚")
+        print("IP –∞–¥—Ä–µ—Å\t–ü–∞–∫–µ—Ç–æ–≤")
         for ip, count in icmp_counter.items():
             print(f"{ip}: \t{count}")
 

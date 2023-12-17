@@ -1,5 +1,4 @@
-# -*- coding: cp1251 -*-
-import sys
+﻿import sys
 import time
 import random
 from http.server import ThreadingHTTPServer, BaseHTTPRequestHandler

@@ -1,5 +1,4 @@
-# -*- coding: cp1251 -*-
-import tkinter as tk
+﻿import tkinter as tk
 import subprocess
 import threading
 

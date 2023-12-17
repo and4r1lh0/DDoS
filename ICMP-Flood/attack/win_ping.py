@@ -1,5 +1,4 @@
-# -*- coding: cp1251 -*-
-import subprocess
+﻿import subprocess
 import threading
 
 def send_ping(ip_dest,ip_src,sent_buff_size):

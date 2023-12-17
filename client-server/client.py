@@ -1,5 +1,4 @@
-# -*- coding: cp1251 -*-
-import socket
+﻿import socket
 import psutil
 import os
 
@@ -16,7 +15,7 @@ def main():
             data = client_socket.recv(1024).decode()
             print(data)
         except ConnectionRefusedError:
-            print(f"Сервер не доступен.")
+            print(f"РЎРµСЂРІРµСЂ РЅРµ РґРѕСЃС‚СѓРїРµРЅ.")
 
 
 if __name__ == "__main__":

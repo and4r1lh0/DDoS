@@ -1,4 +1,3 @@
-# -*- coding: cp1251 -*-
 import socket
 import struct
 import sys

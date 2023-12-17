@@ -1,5 +1,4 @@
-# -*- coding: cp1251 -*-
-import socket
+﻿import socket
 import threading
 
 def handle_client(client_socket):

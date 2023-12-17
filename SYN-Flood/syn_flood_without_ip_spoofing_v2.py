@@ -1,5 +1,4 @@
-# -*- coding: cp1251 -*-
-from scapy.all import *
+п»їfrom scapy.all import *
 import os
 import sys
 import random
@@ -28,12 +27,12 @@ def SYN_Flood(dstIP, dstPort, counter):
 
 def info():
     dstIP = input("IP")
-    dstPort = int(input("Порт"))
+    dstPort = int(input("РџРѕСЂС‚"))
     return dstIP, dstPort
 
 def main():
     dstIP, dstPort = info()
-    counter = int(input("Количество пакетов: "))
+    counter = int(input("РљРѕР»РёС‡РµСЃС‚РІРѕ РїР°РєРµС‚РѕРІ: "))
     SYN_Flood(dstIP, dstPort, counter)
 
 if __name__ == "__main__":

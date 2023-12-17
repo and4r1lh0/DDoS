@@ -1,5 +1,4 @@
-# -*- coding: cp1251 -*-
-import os
+п»їimport os
 from scapy.all import sniff, IP, ICMP
 from collections import defaultdict
 import threading
@@ -24,7 +23,7 @@ def count_icmp_packets(packet):
 def print_statistics():
     while True:
         os.system('cls' if os.name == 'nt' else 'clear')
-        print("IP адрес\tПакетов (Всего)\t(1 минута)\t(5 минут)\t(15 минут)")
+        print("IP Р°РґСЂРµСЃ\tРџР°РєРµС‚РѕРІ (Р’СЃРµРіРѕ)\t(1 РјРёРЅСѓС‚Р°)\t(5 РјРёРЅСѓС‚)\t(15 РјРёРЅСѓС‚)")
         for ip, counters in icmp_counter.items():
             total = counters['total']
             packets_1_min = count_packets_in_interval(counters['1_min'], 60)
@@ -40,12 +39,12 @@ def count_packets_in_interval(interval_counter, interval_length):
     packets_in_interval = sum(count for timestamp, count in interval_counter.items() if timestamp >= start_time)
     return packets_in_interval
 
-#Cловарь для подсчета ICMP пакетов от каждого IP
+#CР»РѕРІР°СЂСЊ РґР»СЏ РїРѕРґСЃС‡РµС‚Р° ICMP РїР°РєРµС‚РѕРІ РѕС‚ РєР°Р¶РґРѕРіРѕ IP
 icmp_counter = defaultdict(lambda: {'total': 0, '1_min': defaultdict(int), '5_min': defaultdict(int), '15_min': defaultdict(int)})
 
 local_ip = get_local_ip()
 
-#Поток для вывода статистики
+#РџРѕС‚РѕРє РґР»СЏ РІС‹РІРѕРґР° СЃС‚Р°С‚РёСЃС‚РёРєРё
 statistics_thread = threading.Thread(target=print_statistics)
 statistics_thread.start()
 

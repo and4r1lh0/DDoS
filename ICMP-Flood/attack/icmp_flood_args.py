@@ -1,5 +1,4 @@
-# -*- coding: cp1251 -*-
-from ctypes.wintypes import tagRECT
+﻿from ctypes.wintypes import tagRECT
 import socket
 import struct
 import sys

