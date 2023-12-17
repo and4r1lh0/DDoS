@@ -50,26 +50,26 @@ def main():
     frame = ttk.Frame(root, padding="10")
     frame.grid(row=0, column=0, sticky=(tk.W, tk.E, tk.N, tk.S))
 
-    ttk.Label(frame, text="IP-Р°РґСЂРµСЃ Р°С‚Р°РєСѓРµРјРѕРіРѕ С…РѕСЃС‚Р°:").grid(column=0, row=0, sticky=tk.W)
+    ttk.Label(frame, text="IP-адрес атакуемого хоста:").grid(column=0, row=0, sticky=tk.W)
     ip_entry = ttk.Entry(frame, width=15)
     ip_entry.grid(column=1, row=0, sticky=tk.W)
 
-    ttk.Label(frame, text="РџСЂРѕРґРѕР»Р¶РёС‚РµР»СЊРЅРѕСЃС‚СЊ Р°С‚Р°РєРё (СЃ):").grid(column=0, row=1, sticky=tk.W)
+    ttk.Label(frame, text="Продолжительность атаки (с):").grid(column=0, row=1, sticky=tk.W)
     duration_entry = ttk.Entry(frame, width=15)
     duration_entry.grid(column=1, row=1, sticky=tk.W)
 
-    ttk.Label(frame, text="Р Р°Р·РјРµСЂ РїР°РєРµС‚Р° (Р±Р°Р№С‚):").grid(column=0, row=2, sticky=tk.W)
+    ttk.Label(frame, text="Размер пакета (байт):").grid(column=0, row=2, sticky=tk.W)
     size_entry = ttk.Entry(frame, width=15)
     size_entry.grid(column=1, row=2, sticky=tk.W)
 
-    ttk.Label(frame, text="РљРѕР»РёС‡РµСЃС‚РІРѕ РїРѕС‚РѕРєРѕРІ:").grid(column=0, row=3, sticky=tk.W)
+    ttk.Label(frame, text="Количество потоков:").grid(column=0, row=3, sticky=tk.W)
     threads_entry = ttk.Entry(frame, width=15)
     threads_entry.grid(column=1, row=3, sticky=tk.W)
 
-    start_button = ttk.Button(frame, text="Р—Р°РїСѓСЃС‚РёС‚СЊ Р°С‚Р°РєСѓ", command=start_attack)
+    start_button = ttk.Button(frame, text="Запустить атаку", command=start_attack)
     start_button.grid(column=0, row=4, columnspan=2, pady=10)
 
-    stop_button = ttk.Button(frame, text="РћСЃС‚Р°РЅРѕРІРёС‚СЊ Р°С‚Р°РєСѓ", command=stop_attack, state=tk.DISABLED)
+    stop_button = ttk.Button(frame, text="Остановить атаку", command=stop_attack, state=tk.DISABLED)
     stop_button.grid(column=0, row=5, columnspan=2, pady=10)
 
     status_label = ttk.Label(frame, text='')

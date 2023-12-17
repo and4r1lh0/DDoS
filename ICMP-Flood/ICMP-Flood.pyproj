@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>78d82f76-0c7c-46d7-82c5-b1999c9eec08</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>detect\detect_icmp_with_condition.py</StartupFile>
+    <StartupFile>attack\gui\merge_v2.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -46,6 +46,7 @@
     <Compile Include="attack\send_templates\scapy\scapy_icmp_sender.py" />
     <Compile Include="detect\agent\server.py" />
     <Compile Include="attack\win_ping.py" />
+    <Compile Include="attack\gui\merge_v2.py" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="attack\gui\depend\" />
