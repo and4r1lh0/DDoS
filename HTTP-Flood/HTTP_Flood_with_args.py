@@ -2,17 +2,30 @@
 import random
 import socket
 import string
+import sys
 import threading
 import time
-import sys
 
-host = ''
-ip = "192.168.1.27"
-port = 80
-num_requests = 1000000
+host = ""
+ip = ""
+port = 0
+num_requests = 0
+
+if len(sys.argv) == 2:
+    port = 80
+    num_requests = 100000000
+elif len(sys.argv) == 3:
+    port = int(sys.argv[2])
+    num_requests = 100000000
+elif len(sys.argv) == 4:
+    port = int(sys.argv[2])
+    num_requests = int(sys.argv[3])
+else:
+    print (f"ERROR\n Usage: {sys.argv[0]} < Hostname > < Port > < Number_of_Attacks >")
+    sys.exit(1)
 
 try:
-    host = str(host).replace("https://", "").replace("http://", "").replace("www.", "")
+    host = str(sys.argv[1]).replace("https://", "").replace("http://", "").replace("www.", "")
     ip = socket.gethostbyname(host)
 except socket.gaierror:
     print (" ERROR\n Make sure you entered a correct website")

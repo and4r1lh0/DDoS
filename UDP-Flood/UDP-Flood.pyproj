@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>81ef2c5d-4ad9-4f0d-9a1c-46c7a97a3260</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>attack.py</StartupFile>
+    <StartupFile>sample\sample_client.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -22,7 +22,11 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="attack.py" />
-    <Compile Include="UDP_Flood.py" />
+    <Compile Include="sample\sample_client.py" />
+    <Compile Include="sample\sample_server.py" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="sample\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in

@@ -2,15 +2,15 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>f029699e-0bcf-4512-a50e-d78c4e92c4bf</ProjectGuid>
+    <ProjectGuid>0308ba1e-17aa-429c-810a-46e8e9b9636c</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>client.py</StartupFile>
+    <StartupFile>syn_flood_without_ip_spoofing_v2.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
     <OutputPath>.</OutputPath>
-    <Name>Syn-Flood</Name>
-    <RootNamespace>Syn-Flood</RootNamespace>
+    <Name>SYN-Flood</Name>
+    <RootNamespace>SYN-Flood</RootNamespace>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
@@ -21,11 +21,10 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="1.py" />
-    <Compile Include="2.py" />
-    <Compile Include="client.py" />
-    <Compile Include="server.py" />
-    <Compile Include="Syn_Flood.py" />
+    <Compile Include="syn_flood.py" />
+    <Compile Include="syn_flood_with_args.py" />
+    <Compile Include="syn_flood_without_ip_spoofing_v1.py" />
+    <Compile Include="syn_flood_without_ip_spoofing_v2.py" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in

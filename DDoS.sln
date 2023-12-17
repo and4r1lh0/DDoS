@@ -3,13 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34322.80
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "ICMP-Flood", "DDoS\ICMP-Flood.pyproj", "{C2936517-19AF-496C-B1D3-E5A6CDA588C2}"
-EndProject
-Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "Syn-Flood", "Syn-Flood\Syn-Flood.pyproj", "{F029699E-0BCF-4512-A50E-D78C4E92C4BF}"
-EndProject
 Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "HTTP-Flood", "HTTP-Flood\HTTP-Flood.pyproj", "{E66B61F4-02AF-4BF4-8AF6-7E6213530377}"
 EndProject
 Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "UDP-Flood", "UDP-Flood\UDP-Flood.pyproj", "{81EF2C5D-4AD9-4F0D-9A1C-46C7A97A3260}"
+EndProject
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "ICMP-Flood", "ICMP-Flood\ICMP-Flood.pyproj", "{78D82F76-0C7C-46D7-82C5-B1999C9EEC08}"
+EndProject
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "SYN-Flood", "SYN-Flood\SYN-Flood.pyproj", "{0308BA1E-17AA-429C-810A-46E8E9B9636C}"
+EndProject
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "client-server", "client-server\client-server.pyproj", "{BB75F4D9-8256-47CA-8892-5A17CD47D588}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,14 +19,16 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{C2936517-19AF-496C-B1D3-E5A6CDA588C2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C2936517-19AF-496C-B1D3-E5A6CDA588C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F029699E-0BCF-4512-A50E-D78C4E92C4BF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F029699E-0BCF-4512-A50E-D78C4E92C4BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E66B61F4-02AF-4BF4-8AF6-7E6213530377}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{E66B61F4-02AF-4BF4-8AF6-7E6213530377}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{81EF2C5D-4AD9-4F0D-9A1C-46C7A97A3260}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{81EF2C5D-4AD9-4F0D-9A1C-46C7A97A3260}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{78D82F76-0C7C-46D7-82C5-B1999C9EEC08}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{78D82F76-0C7C-46D7-82C5-B1999C9EEC08}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0308BA1E-17AA-429C-810A-46E8E9B9636C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0308BA1E-17AA-429C-810A-46E8E9B9636C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BB75F4D9-8256-47CA-8892-5A17CD47D588}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BB75F4D9-8256-47CA-8892-5A17CD47D588}.Release|Any CPU.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
